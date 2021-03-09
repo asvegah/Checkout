@@ -9,6 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CheckoutTests", "CheckoutTe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Checkout", "Checkout\Checkout.csproj", "{936831AB-9E71-47BF-B71D-A9209F4BFD5D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D56168C7-6783-4828-9A4F-E7E29726BDDF}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Downloads\TechTest#1_Checkout_Kata (003).docx = ..\..\..\Downloads\TechTest#1_Checkout_Kata (003).docx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
