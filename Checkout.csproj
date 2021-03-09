@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Checkout.Services\Checkout.Services.csproj" />
+    <ProjectReference Include="Checkout.Services\Checkout.Services.csproj" />
   </ItemGroup>
 
 </Project>
