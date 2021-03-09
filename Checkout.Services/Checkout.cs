@@ -25,7 +25,12 @@ namespace Checkout.Services
         }
         public void Scan(string sku)
         {
-            _scannedItems.Add(_repository.GetItem(sku));
+            var item = _repository.GetItem(sku);
+            if(item != null)
+            {
+                _scannedItems.Add(item);
+            }
+      
         }
 
         public decimal GetTotalPrice()
