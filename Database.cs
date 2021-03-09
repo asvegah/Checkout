@@ -1,4 +1,4 @@
-﻿using Checkout.Services.Models;
+﻿using Checkout.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
