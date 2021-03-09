@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Checkout.Services
 {
-    public class Checkout
+    public class Checkout : ICheckout
     {
         private readonly List<Item> _scannedItems;
         private readonly IRepository _repository;
