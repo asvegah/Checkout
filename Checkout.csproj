@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Checkout.Services\**" />
+    <EmbeddedResource Remove="Checkout.Services\**" />
+    <None Remove="Checkout.Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="Checkout.Services\Checkout.Services.csproj" />
   </ItemGroup>
 
