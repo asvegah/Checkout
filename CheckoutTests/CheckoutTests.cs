@@ -11,7 +11,8 @@ namespace CheckoutTests
     public class CheckoutTests 
     {
         private IRepository _repository;
-        public void Setup()
+
+        internal void Setup()
         {
             var dataSource = new DataSource
             {
@@ -26,6 +27,77 @@ namespace CheckoutTests
 
             _repository = new Repository(dataSource);
         }
+
+        [Fact]
+        public void CalculateSingleItem_A_Total()
+        {
+            //Arrange
+            Setup();
+            ICheckout checkout = new Checkout.Services.Checkout(_repository);
+
+            //Act
+            checkout.Scan("A99");
+            decimal total = checkout.GetTotalPrice();
+
+            //Assert
+            Assert.Equal(0.5m, total);
+        }
+
+        [Fact]
+        public void CaculateTwosItems_A_WithoutSpecialOffer_Total()
+        {
+            //Arrange
+            Setup();
+            ICheckout checkout = new Checkout.Services.Checkout(_repository);
+
+            //Act
+            checkout.Scan("A99");
+            checkout.Scan("A99");
+            decimal total = checkout.GetTotalPrice();
+
+            //Assert
+            Assert.Equal(1m, total);
+        }
+
+        [Fact]
+        public void CaculateTwosItems_B_WithSpecialOffer_Total()
+        {
+            //Arrange
+            Setup();
+            ICheckout checkout = new Checkout.Services.Checkout(_repository);
+
+            //Act
+            checkout.Scan("B15");
+            checkout.Scan("B15");
+            decimal total = checkout.GetTotalPrice();
+
+            //Assert
+            Assert.Equal(0.45m, total);
+        }
+
+        [Fact]
+        public void MultipleItems_MultipleSpecialOffers_Total()
+        {
+            //Arrange
+            Setup();
+            ICheckout checkout = new Checkout.Services.Checkout(_repository);
+
+            //Act
+            checkout.Scan("B15");
+            checkout.Scan("A99");
+            checkout.Scan("B15");
+            checkout.Scan("B15");
+            checkout.Scan("A99");
+            checkout.Scan("B15");
+            checkout.Scan("A99");
+            decimal total = checkout.GetTotalPrice();
+
+            //Assert
+            Assert.Equal(2.20m, total);
+        }
+
+
+
 
     }
 }
